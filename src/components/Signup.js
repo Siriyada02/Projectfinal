@@ -42,7 +42,7 @@ function Signup({ toggleForm }) {
       <form onSubmit={handleSubmit} className="auth-form">
         <h2>Sign up</h2>
         <div>
-          <label htmlFor="username">User Name</label>
+          <label htmlFor="username">Username</label>
           <input
             type="username"
             id="username"
