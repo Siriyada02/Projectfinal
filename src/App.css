@@ -68,7 +68,7 @@
   margin-bottom: 5px;
 }
 
-.auth-form input[type="username"],
+.auth-form input[type="text"],
 .auth-form input[type="email"],
 .auth-form input[type="password"],
 .auth-form input[type="confirmPassword"] {
