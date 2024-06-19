@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import logo from '../logo.svg';
 import { Link } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Navbar = ({ openAuthPopup }) => {
     return (
@@ -13,7 +14,7 @@ const Navbar = ({ openAuthPopup }) => {
             </div>
             <ul className="nav-links">
                 <li className="dropdown">
-                    <Link to='/brand'>แบรนด์</Link>
+                    <Link to='/แบรนด์'>แบรนด์</Link>
                     <div className="dropdown-content">
                         <ul>
                             <li><Link to='/brand1'>แบรนด์ 1</Link></li>
@@ -23,22 +24,22 @@ const Navbar = ({ openAuthPopup }) => {
                     </div>
                 </li>
                 <li className="dropdown">
-                    <Link to='/type'>ประเภทเมล็ดพันธุ์</Link>
+                    <Link to='/ประเภทเมล็ดพันธุ์'>ประเภทเมล็ดพันธุ์</Link>
                     <div className="dropdown-content">
                         <ul>
-                            <li><Link to='/type1'>ประเภท 1</Link></li>
-                            <li><Link to='/type2'>ประเภท 2</Link></li>
-                            <li><Link to='/type3'>ประเภท 3</Link></li>
+                            <li><Link to='/seedType1'>ประเภท 1</Link></li>
+                            <li><Link to='/seedType2'>ประเภท 2</Link></li>
+                            <li><Link to='/seedType3'>ประเภท 3</Link></li>
                         </ul>
                     </div>
                 </li>
                 <li className="dropdown">
-                    <Link to='/package'>สินค้าตามแพ็กเกจ</Link>
+                    <Link to='/สินค้าตามแพ็กเกจ'>สินค้าตามแพ็กเกจ</Link>
                     <div className="dropdown-content">
                         <ul>
-                            <li><Link to='/package1'>แพ็กเกจ 1</Link></li>
-                            <li><Link to='/package2'>แพ็กเกจ 2</Link></li>
-                            <li><Link to='/package3'>แพ็กเกจ 3</Link></li>
+                            <li><Link to='/packageProducts1'>แพ็กเกจ 1</Link></li>
+                            <li><Link to='/packageProducts2'>แพ็กเกจ 2</Link></li>
+                            <li><Link to='/packageProducts3'>แพ็กเกจ 3</Link></li>
                         </ul>
                     </div>
                 </li>
