@@ -42,6 +42,17 @@ function Signup({ toggleForm }) {
       <form onSubmit={handleSubmit} className="auth-form">
         <h2>Sign up</h2>
         <div>
+          <label htmlFor="username">User Name</label>
+          <input
+            type="username"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -59,6 +70,17 @@ function Signup({ toggleForm }) {
             id="password"
             name="password"
             value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            value={formData.confirmPassword}
             onChange={handleChange}
             required
           />
