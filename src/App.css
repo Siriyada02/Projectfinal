@@ -42,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 70vh;
 }
 
 .auth-form {
@@ -68,8 +68,10 @@
   margin-bottom: 5px;
 }
 
+.auth-form input[type="username"],
 .auth-form input[type="email"],
-.auth-form input[type="password"] {
+.auth-form input[type="password"],
+.auth-form input[type="confirmPassword"] {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
