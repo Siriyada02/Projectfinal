@@ -3,8 +3,10 @@ import './Signup.css';
 
 function Signup({ toggleForm }) {
   const [formData, setFormData] = useState({
+    username: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   });
 
   const handleChange = (e) => {
@@ -18,12 +20,19 @@ function Signup({ toggleForm }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:5000/signup', {
+    // ตรวจสอบว่ารหัสผ่านตรงกัน
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    fetch('http://127.0.0.1:5000/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        username: formData.username,
         email: formData.email,
         password: formData.password
       })
@@ -44,7 +53,7 @@ function Signup({ toggleForm }) {
         <div>
           <label htmlFor="username">Username</label>
           <input
-            type="username"
+            type="text"
             id="username"
             name="username"
             value={formData.username}
