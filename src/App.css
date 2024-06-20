@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #EAD7BB;
 }
 
 .App-logo {
@@ -42,7 +43,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  min-height: 60vh;
+  height: auto;
 }
 
 .auth-form {
@@ -156,17 +158,17 @@
 .search-bar input {
   padding: 15px;
   font-size: 18px;
-  border: 1px solid #ccc;
+  border: 1px solid white;
   border-radius: 50px;
   width: 300px;
   margin-right: 10px;
-  background-color: #f5e8d8;
+  background-color: white;
 }
 
 .search-bar button {
   padding: 15px 30px;
   font-size: 18px;
-  background-color: #f5e8d8;
+  background-color: whitesmoke;
   color: black;
   border: none;
   border-radius: 50px;
@@ -174,7 +176,7 @@
 }
 
 .search-bar button:hover {
-  background-color: #e0d0b8;
+  background-color: #68D5B6;
 }
 
 /* สไตล์สำหรับหมวดหมู่ */
