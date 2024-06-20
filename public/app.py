@@ -1,19 +1,18 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import mysql.connector
-from mysql.connector import Error
 from werkzeug.security import generate_password_hash, check_password_hash
+import traceback
+from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 CORS(app)
 
-def create_connection():
-    return mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='',
-        database='new_registration_db'
-    )
+# ตั้งค่าเชื่อมต่อกับ MongoDB
+app.config['MONGO_URI'] = "mongodb+srv://saruttaya:1234@shop-news.fjh15tu.mongodb.net/mydata?retryWrites=true&w=majority&appName=shop-news"
+mongo = PyMongo(app)
+
+# เลือกหรือสร้างคอลเลคชัน
+users_collection = mongo.db.shop_data
 
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -23,18 +22,12 @@ def signup():
     password = generate_password_hash(data['password'])
 
     try:
-        connection = create_connection()
-        cursor = connection.cursor()
-        cursor.execute("INSERT INTO users (username, email, password) VALUES (%s, %s, %s)", (username, email, password))
-        connection.commit()
+        users_collection.insert_one({"username": username, "email": email, "password": password})
         return jsonify({"message": "User registered successfully"})
-    except Error as e:
-        print(f"Error: '{e}'")
-        return jsonify({"message": "Failed to register user"}), 500
-    finally:
-        if connection.is_connected():
-            cursor.close()
-            connection.close()
+    except Exception as e:
+        print(f"Error: {e}")
+        print(traceback.format_exc())
+        return jsonify({"message": f"Failed to register user: {str(e)}"}), 500
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -43,21 +36,15 @@ def login():
     password = data['password']
 
     try:
-        connection = create_connection()
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
-        user = cursor.fetchone()
-        if user and check_password_hash(user[3], password):
+        user = users_collection.find_one({"email": email})
+        if user and check_password_hash(user['password'], password):
             return jsonify({"message": "Login successful"})
         else:
             return jsonify({"message": "Invalid email or password"}), 401
-    except Error as e:
-        print(f"Error: '{e}'")
-        return jsonify({"message": "Failed to login"}), 500
-    finally:
-        if connection.is_connected():
-            cursor.close()
-            connection.close()
+    except Exception as e:
+        print(f"Error: {e}")
+        print(traceback.format_exc())
+        return jsonify({"message": f"Failed to login: {str(e)}"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
