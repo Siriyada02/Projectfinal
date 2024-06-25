@@ -1,12 +1,14 @@
 .navbar {
     background-color: #68D5B6;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 20px 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
 }
 
 .navbar:hover {
@@ -46,6 +48,7 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* dropdown */
 .dropdown {
     position: relative;
 }
@@ -54,6 +57,7 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
+    border-radius: 10px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -80,6 +84,7 @@
     background-color: #ddd;
 }
 
+/* login/signup */
 .auth-links {
     display: flex;
     align-items: center;
@@ -121,4 +126,9 @@
 
 .auth-link a:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* เพิ่มเติมสำหรับการจัดการเนื้อหาของหน้าให้มีพื้นที่จาก navbar */
+.content {
+    padding-top: 100px; /* ปรับขนาด padding ตามความสูงของ navbar */
 }
