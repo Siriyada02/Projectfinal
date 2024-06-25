@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login({ toggleForm }) {
+function Login({ toggleForm ,onSuccess}) {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -35,6 +35,7 @@ function Login({ toggleForm }) {
       .then(data => {
         alert(data.message);
         if (data.message === 'Login successful') {
+          onSuccess();
           navigate('/');
         }
       })
@@ -77,3 +78,4 @@ function Login({ toggleForm }) {
 }
 
 export default Login;
+
