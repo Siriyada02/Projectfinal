@@ -40,6 +40,10 @@ function Signup({ toggleForm }) {
       .then(response => response.json())
       .then(data => {
         alert(data.message);
+        // เช็คว่าลงทะเบียนสำเร็จแล้วและเรียกใช้ toggleForm เพื่อเปลี่ยนเส้นทางไปยังหน้า login
+        if (data.redirect === '/login') {
+          toggleForm(); // เรียกใช้ฟังก์ชันที่เปลี่ยนเส้นทางหน้า
+        }
       })
       .catch(error => {
         console.error('Error:', error);
