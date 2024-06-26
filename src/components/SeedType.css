@@ -1,0 +1,53 @@
+.seed-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+
+  }
+  
+  .seed-card {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .seed-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .seed-card h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .seed-card p {
+    margin: 5px 0;
+  }
+  
+  .store-prices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+/*   
+  .store-price img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+  } */
+  
+  .store-price span {
+    font-weight: bold;
+    color: #333;
+  }
+  
