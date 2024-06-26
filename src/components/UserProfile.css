@@ -1,0 +1,48 @@
+.profile-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px; /* เพิ่ม padding เพื่อให้พื้นหลังครอบคลุม */
+    border-radius: 8px; /* ทำให้มุมของพื้นหลังโค้งมน */
+}
+
+.avatar {
+    font-size: 100px;
+    color: #000000;
+    margin-bottom: 10px;
+    background-color: #ffffff; /* พื้นหลังที่ต้องการ */
+}
+
+.profile-content {
+    margin-top: 20px;
+    padding: 20px; /* เพิ่ม padding เพื่อให้พื้นหลังครอบคลุม */
+    border-radius: 8px; /* ทำให้มุมของพื้นหลังโค้งมน */
+}
+
+.product-history {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    width: 180px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: white; /* พื้นหลังของสินค้า */
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
