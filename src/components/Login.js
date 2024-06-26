@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login({ toggleForm ,onSuccess}) {
+function Login({ toggleForm, onSuccess }) {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -35,8 +35,8 @@ function Login({ toggleForm ,onSuccess}) {
       .then(data => {
         alert(data.message);
         if (data.message === 'Login successful') {
-          onSuccess();
-          navigate('/');
+          onSuccess(data.user_id);  // ส่ง user_id กลับไป
+          navigate(`/user/${data.user_id}`);  // นำทางไปยังหน้าโปรไฟล์ผู้ใช้
         }
       })
       .catch(error => {
@@ -78,4 +78,5 @@ function Login({ toggleForm ,onSuccess}) {
 }
 
 export default Login;
+
 
