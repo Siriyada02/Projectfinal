@@ -36,7 +36,7 @@ const SearchBar = () => {
                 {results.length > 0 ? (
                     <div className="product-grid">
                         {results.map((product) => (
-                            <div key={product.index} className="product-card" onClick={() => navigate(`/product/${product.index}`)}>
+                            <div key={product._id} className="product-card" onClick={() => navigate(`/product/${product._id}`)}>
                                 <img src={product.image} alt={product.name} className="product-image" />
                                 <div className="product-info">
                                     <h3 className="product-name">{product.name}</h3>
@@ -45,12 +45,14 @@ const SearchBar = () => {
                                         <span className="product-price-new">฿{product.price}</span>
                                     </div>
                                     {product.stores && (
-                                        <button className="store-price" onClick={() => navigate(`/product/${product.index}`)}>ราคา {product.stores.length} ร้าน </button>
+                                        <button className="store-price" onClick={() => navigate(`/product/${product._id}`)}>ราคาจาก {product.stores.length} ร้าน </button>
                                     )}
                                     {product.stores && product.stores.map((store, index) => (
                                         <div key={index} className="store-info">
                                             <img src={store.logo} alt={store.name} className="store-logo" />
                                             <span>฿{store.price}</span>
+                                            
+                    
                                         </div>
                                     ))}
                                 </div>
@@ -66,6 +68,7 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
 
 
 
