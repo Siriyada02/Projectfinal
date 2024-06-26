@@ -100,7 +100,7 @@
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 50px;
     transition: background-color 0.3s ease;
 }
 
@@ -130,5 +130,53 @@
 
 /* เพิ่มเติมสำหรับการจัดการเนื้อหาของหน้าให้มีพื้นที่จาก navbar */
 .content {
-    padding-top: 100px; /* ปรับขนาด padding ตามความสูงของ navbar */
+    padding-top: 100px; 
+}
+
+/* user dropdown */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color:#EAD7BB;
+    color: black;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: right;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+
+.user-dropdown-content a, .user-dropdown-content .logout-button {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.user-dropdown-content .logout-button {
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.user-profile-link:hover, .logout-button:hover {
+    background-color: #ddd;
+    
+}
+
+/* เพิ่มเติมสำหรับการจัดการเนื้อหาของหน้าให้มีพื้นที่จาก navbar */
+.content {
+    padding-top: 100px; 
 }
