@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './ProductDetails.css';
 
-function ProductDetails() {
+function ProductDetails({ userId }) {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -11,15 +11,31 @@ function ProductDetails() {
     useEffect(() => {
         axios.get(`http://localhost:5000/product/${productId}`)
             .then(response => {
-                console.log('Product data:', response.data);  // Add this line
+                console.log('Product data:', response.data);
                 setProduct(response.data);
                 setLoading(false);
+
+                if (userId) {
+                    axios.post('http://localhost:5000/product-view', {
+                        user_id: userId,
+                        product_id: productId,
+                        product_name: response.data.name,
+                        product_image: response.data.image,
+                        product_price: response.data.price
+                    })
+                    .then(response => {
+                        console.log(response.data.message);
+                    })
+                    .catch(error => {
+                        console.error('Error recording product view:', error);
+                    });
+                }
             })
             .catch(error => {
                 console.error('Error fetching product data:', error);
                 setLoading(false);
             });
-    }, [productId]);
+    }, [productId, userId]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -32,7 +48,7 @@ function ProductDetails() {
     return (
         <div className="product-details-container">
             <nav className="breadcrumb">
-                <a href="/">Home</a> / <a href="/brands">แบรนด์</a> / <a href={`/brands/${product.brand}`}>{product.brand}</a> {product.name}
+                <a href="/">Home</a> / <a href="/brands">แบรนด์</a> / <a href={`/brands/${product.brand}`}>{product.brand}</a>{product.name}
             </nav>
             <div className="product-details-card">
                 <img src={product.image} alt={product.name} className="product-details-image" />
@@ -58,8 +74,3 @@ function ProductDetails() {
 }
 
 export default ProductDetails;
-
-
-
-
-
